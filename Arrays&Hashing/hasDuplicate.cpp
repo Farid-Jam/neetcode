@@ -1,9 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <unordered_set>
-using namespace std;
+// Given an integer array nums, return true if any value appears 
+// more than once in the array, otherwise return false.
 
-// Your original class
 class Solution {
 public:
     bool hasDuplicate(vector<int>& nums) {
@@ -18,13 +15,3 @@ public:
         return false;
     }
 };
-
-int main() {
-    Solution solution;
-    vector<int> nums = {1, 2, 3, 4, 5, 1}; // Change this to test other cases
-
-    bool result = solution.hasDuplicate(nums);
-    cout << (result ? "true" : "false") << endl;
-
-    return 0;
-}
