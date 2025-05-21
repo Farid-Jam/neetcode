@@ -1,0 +1,44 @@
+/* You are given an array of strings tokens that represents a valid arithmetic expression in Reverse Polish Notation.
+
+Return the integer that represents the evaluation of the expression.
+
+The operands may be integers or the results of other operations.
+The operators include '+', '-', '*', and '/'.
+Assume that division between integers always truncates toward zero. */
+
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> st;
+        for (string token : tokens){
+            if (token == "+"){
+                int x = st.top();
+                st.pop();
+                int y = st.top();
+                st.pop();
+                st.push(y + x);
+            } else if (token == "-"){
+                int x = st.top();
+                st.pop();
+                int y = st.top();
+                st.pop();
+                st.push(y - x);
+            } else if (token == "*"){
+                int x = st.top();
+                st.pop();
+                int y = st.top();
+                st.pop();
+                st.push(y * x);
+            } else if (token == "/"){
+                int x = st.top();
+                st.pop();
+                int y = st.top();
+                st.pop();
+                st.push(y / x);
+            } else {
+                st.push(stoi(token));
+            }
+        }
+        return st.top();
+    }
+};
